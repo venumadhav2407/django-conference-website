@@ -1,0 +1,154 @@
+{% extends "base.html" %} {% block content %}
+
+<section class="">
+  <!-- Hero Section -->
+  <section
+    class="text-center py-16 bg-gradient-to-r  from-blue-700 to-gray-900 shadow-lg"
+  >
+    <h1 class="text-white text-4xl font-bold">Indian Institute of Surgeon Summit 2025</h1>
+    <p class="text-lg mt-2 text-blue-200">
+      Explore the event schedule and register for specific sessions.
+    </p>
+  </section>
+
+
+
+  {% block section %}
+
+  <!-- Agenda Section -->
+  <div class="max-w-6xl mx-auto px-6 py-12 bg-white shadow-lg rounded-lg p-4">
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">
+      Conference Schedule
+    </h2>
+
+    <!-- Event List -->
+      <div class="h-svh overflow-y-auto scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-gray-200 space-y-3 p-2">
+        <!-- Event 1 -->
+        <div class="bg-gray-100 text-gray-900 p-6 rounded-lg shadow-md">
+          <h3 class="text-2xl font-semibold">Robotic Surgery Advancements</h3>
+          <p class="text-gray-600 mt-1">March 15, 2025 | 10:00 AM - 12:00 PM</p>
+          <p class="mt-3">
+            Discover the latest trends in robotic-assisted surgery with leading
+            experts.
+          </p>
+          <div class="mt-4 flex justify-between items-center">
+            <p class="font-semibold">Speaker: Dr. Jane Smith</p>
+            <a
+              href="{% url 'payment' %}"
+              class="bg-blue-500 text-white px-5 py-2 rounded-lg hover:bg-blue-600 transition"
+              >Register</a
+            >
+          </div>
+        </div>
+
+        <!-- Event 2 -->
+        <div class="bg-gray-100 text-gray-900 p-6 rounded-lg shadow-md">
+          <h3 class="text-2xl font-semibold">Minimally Invasive Techniques</h3>
+          <p class="text-gray-600 mt-1">March 15, 2025 | 2:00 PM - 4:00 PM</p>
+          <p class="mt-3">
+            Learn about cutting-edge techniques in minimally invasive surgeries.
+          </p>
+          <div class="mt-4 flex justify-between items-center">
+            <p class="font-semibold">Speaker: Dr. John Doe</p>
+            <a
+              href="{% url 'payment' %}"
+              class="bg-blue-500 text-white px-5 py-2 rounded-lg hover:bg-blue-600 transition"
+              >Register</a
+            >
+          </div>
+        </div>
+
+        <!-- Event 3 -->
+        <div class="bg-gray-100 text-gray-900 p-6 rounded-lg shadow-md">
+          <h3 class="text-2xl font-semibold">AI in Healthcare</h3>
+          <p class="text-gray-600 mt-1">March 16, 2025 | 11:00 AM - 1:00 PM</p>
+          <p class="mt-3">
+            Explore AI's role in revolutionizing medical procedures and
+            decision-making.
+          </p>
+          <div class="mt-4 flex justify-between items-center">
+            <p class="font-semibold">Speaker: Dr. Robert Lee</p>
+            <a
+              href="{% url 'payment' %}"
+              class="bg-blue-500 text-white px-5 py-2 rounded-lg hover:bg-blue-600 transition"
+              >Register</a
+            >
+          </div>
+        </div>
+        <!-- Event 4 -->
+        <div class="bg-gray-100 text-gray-900 p-6 rounded-lg shadow-md">
+          <h3 class="text-2xl font-semibold">AI in Healthcare</h3>
+          <p class="text-gray-600 mt-1">March 16, 2025 | 11:00 AM - 1:00 PM</p>
+          <p class="mt-3">
+            Explore AI's role in revolutionizing medical procedures and
+            decision-making.
+          </p>
+          <div class="mt-4 flex justify-between items-center">
+            <p class="font-semibold">Speaker: Dr. Robert Lee</p>
+            <a
+              href="{% url 'payment' %}"
+              class="bg-blue-500 text-white px-5 py-2 rounded-lg hover:bg-blue-600 transition"
+              >Register</a
+            >
+          </div>
+        </div>
+        <!-- Event 5 -->
+        <div class="bg-gray-100 text-gray-900 p-6 rounded-lg shadow-md">
+          <h3 class="text-2xl font-semibold">AI in Healthcare</h3>
+          <p class="text-gray-600 mt-1">March 16, 2025 | 11:00 AM - 1:00 PM</p>
+          <p class="mt-3">
+            Explore AI's role in revolutionizing medical procedures and
+            decision-making.
+          </p>
+          <div class="mt-4 flex justify-between items-center">
+            <p class="font-semibold">Speaker: Dr. Robert Lee</p>
+            <a
+              href="{% url 'payment' %}"
+              class="bg-blue-500 text-white px-5 py-2 rounded-lg hover:bg-blue-600 transition"
+              >Register</a
+            >
+          </div>
+        </div>
+        <!-- Event 6 -->
+        <div class="bg-gray-100 text-gray-900 p-6 rounded-lg shadow-md">
+          <h3 class="text-2xl font-semibold">AI in Healthcare</h3>
+          <p class="text-gray-600 mt-1">March 16, 2025 | 11:00 AM - 1:00 PM</p>
+          <p class="mt-3">
+            Explore AI's role in revolutionizing medical procedures and
+            decision-making.
+          </p>
+          <div class="mt-4 flex justify-between items-center">
+            <p class="font-semibold">Speaker: Dr. Robert Lee</p>
+            <a
+              href="{% url 'payment' %}"
+              class="bg-blue-500 text-white px-5 py-2 rounded-lg hover:bg-blue-600 transition"
+              >Register</a
+            >
+          </div>
+        </div>
+        <!-- Event 7 -->
+        <div class="bg-gray-100 text-gray-900 p-6 rounded-lg shadow-md">
+          <h3 class="text-2xl font-semibold">AI in Healthcare</h3>
+          <p class="text-gray-600 mt-1">March 16, 2025 | 11:00 AM - 1:00 PM</p>
+          <p class="mt-3">
+            Explore AI's role in revolutionizing medical procedures and
+            decision-making.
+          </p>
+          <div class="mt-4 flex justify-between items-center">
+            <p class="font-semibold">Speaker: Dr. Robert Lee</p>
+            <a
+              href="{% url 'payment' %}"
+              class="bg-blue-500 text-white px-5 py-2 rounded-lg hover:bg-blue-600 transition"
+              >Register</a
+            >
+          </div>
+        </div>
+      </div>
+  </div>
+
+  {% endblock section %}
+
+
+</section>
+
+{% endblock content %}

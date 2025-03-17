@@ -1,0 +1,239 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Registration Section with Glassy Space Theme -->
+<section class="relative py-16 bg-black overflow-hidden">
+  
+    <!-- Space Dust Background -->
+    <div class="absolute inset-0">
+      <canvas id="space-dust" class="w-full h-full"></canvas>
+    </div>
+  
+    <!-- Glassy Card -->
+    <div class="relative max-w-6xl mx-auto px-6 text-center">
+      
+      <div class="backdrop-blur-lg bg-white/10 border border-white/20 rounded-lg p-10 shadow-lg">
+        
+        <!-- Section Heading -->
+        <h2 class="text-4xl md:text-5xl font-bold text-white">
+          Register for the Conference
+        </h2>
+        <p class="mt-4 text-lg text-gray-300">
+          Secure your spot for the **Indian Institute of Surgeon Summit 2025**. Limited seats available!
+        </p>
+  
+        <!-- Registration Steps -->
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <div class="bg-white/20 border border-white/30 p-6 rounded-lg shadow-lg text-white hover:shadow-xl transition">
+            <div class="text-4xl font-bold text-blue-400">1</div>
+            <h3 class="text-xl font-semibold mt-2">Fill Out the Form</h3>
+            <p class="mt-2 text-gray-300">Complete the online registration form below.</p>
+          </div>
+  
+          <div class="bg-white/20 border border-white/30 p-6 rounded-lg shadow-lg text-white hover:shadow-xl transition">
+            <div class="text-4xl font-bold text-blue-400">2</div>
+            <h3 class="text-xl font-semibold mt-2">Make Payment</h3>
+            <p class="mt-2 text-gray-300">Complete your registration fee online or via bank transfer.</p>
+          </div>
+  
+          <div class="bg-white/20 border border-white/30 p-6 rounded-lg shadow-lg text-white hover:shadow-xl transition">
+            <div class="text-4xl font-bold text-blue-400">3</div>
+            <h3 class="text-xl font-semibold mt-2">Get Confirmation</h3>
+            <p class="mt-2 text-gray-300">Receive a confirmation email with event details.</p>
+          </div>
+  
+        </div>
+  
+        <!-- Registration Form -->
+        <div class="mt-12 bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-lg shadow-xl max-w-3xl mx-auto">
+          <h3 class="text-3xl font-bold text-center mb-6 text-white">Register Now</h3>
+      
+          <form class="space-y-6" onsubmit="return validateForm()">
+              <!-- Input Fields -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <input type="text" placeholder="Full Name" class="w-full px-4 py-3 bg-black/40 border border-white/30 text-white rounded-lg focus:ring-2 focus:ring-blue-400" required>
+                  <input type="email" placeholder="Email Address" class="w-full px-4 py-3 bg-black/40 border border-white/30 text-white rounded-lg focus:ring-2 focus:ring-blue-400" required>
+              </div>
+      
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <input type="number" placeholder="Phone Number" class="w-full px-4 py-3 bg-black/40 border border-white/30 text-white rounded-lg focus:ring-2 focus:ring-blue-400" required>
+                  <select class="w-full px-4 py-3 bg-black/40 border border-white/30 text-white rounded-lg focus:ring-2 focus:ring-blue-400" required>
+                      <option disabled selected>Select Your Profession</option>
+                      <option>Surgeon</option>
+                      <option>Medical Researcher</option>
+                      <option>Healthcare Professional</option>
+                      <option>Student</option>
+                  </select>
+              </div>
+      
+              <textarea placeholder="Any Comments or Special Requests" class="w-full px-4 py-3 bg-black/40 border border-white/30 text-white rounded-lg focus:ring-2 focus:ring-blue-400"></textarea>
+      
+              <!-- Google reCAPTCHA -->
+            <div class="flex justify-center">
+              <div class="g-recaptcha" data-sitekey="6LcIqu8qAAAAAOKAejGgeHDwxcxQa3zGm5ygvDHn"></div>
+          </div>
+
+              <!-- Terms and Conditions -->
+              <div class="flex items-center space-x-2">
+                  <input type="checkbox" id="terms" class="w-5 h-5 text-blue-500 border-gray-300 rounded focus:ring-blue-500" onchange="toggleSubmitButton()">
+                  <label for="terms" class="text-gray-300">
+                      I agree to the
+                      <a href="{% url 'terms&conditions' %}" class="text-blue-400 underline hover:text-blue-600">
+                          Terms & Conditions
+                      </a>
+                  </label>
+              </div>
+      
+              <!-- Submit Button -->
+              <button type="submit" id="submitBtn" class="w-full bg-gray-500 text-white py-3 rounded-lg text-lg font-semibold shadow-lg cursor-not-allowed" disabled>
+                  Submit Registration
+              </button>
+          </form>
+      </div>
+  
+        <!-- Contact Information -->
+        <div class="mt-12 text-lg text-white">
+          <p>For any questions, contact us:</p>
+          <p class="mt-2"><strong>Email:</strong> <a href="mailto:contact@iisummit2025.com" class="underline text-blue-400">contact@iisummit2025.com</a></p>
+          <p><strong>Phone:</strong> +91 98765 43210</p>
+        </div>
+  
+      </div>
+  
+    </div>
+  
+</section>
+
+
+
+<!-- FAQ Section -->
+<section class="bg-gradient-to-r  from-blue-700 to-gray-900 p-8  py-12 px-6">
+  
+  <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold text-white text-center">Frequently Asked Questions</h2>
+      
+      <div class="mt-6 space-y-4">
+          <div class="bg-white p-4 rounded-lg shadow">
+              <button class="w-full text-left font-semibold text-gray-800 flex items-center justify-between" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                  <span>How do I register for the event?</span>
+                  <span>➕</span>
+              </button>
+              <p class="text-gray-600 mt-2 hidden">You can register through our official website by filling out the registration form and completing the payment process.</p>
+          </div>
+          
+          <div class="bg-white p-4 rounded-lg shadow">
+              <button class="w-full text-left font-semibold text-gray-800 flex items-center justify-between" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                  <span>What payment methods do you accept?</span>
+                  <span>➕</span>
+              </button>
+              <p class="text-gray-600 mt-2 hidden">We accept credit/debit cards, online banking, and other secure digital payment methods.</p>
+          </div>
+          
+          <div class="bg-white p-4 rounded-lg shadow">
+              <button class="w-full text-left font-semibold text-gray-800 flex items-center justify-between" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                  <span>Will I receive a confirmation after registration?</span>
+                  <span>➕</span>
+              </button>
+              <p class="text-gray-600 mt-2 hidden">Yes, you will receive a confirmation email with your registration details once your payment is successfully processed.</p>
+          </div>
+
+          <div class="bg-white p-4 rounded-lg shadow">
+              <button class="w-full text-left font-semibold text-gray-800 flex items-center justify-between" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                  <span>Can I cancel my registration and get a refund?</span>
+                  <span>➕</span>
+              </button>
+              <p class="text-gray-600 mt-2 hidden">Cancellations are subject to our refund policy. Please check our terms and conditions for more details.</p>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow">
+              <button class="w-full text-left font-semibold text-gray-800 flex items-center justify-between" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                  <span>Who can I contact for assistance?</span>
+                  <span>➕</span>
+              </button>
+              <p class="text-gray-600 mt-2 hidden">You can reach out to our support team via email at [Insert Contact Email] or call us at [Insert Contact Number].</p>
+          </div>
+      </div>
+  </div>
+</section>
+
+  
+
+  <script>
+    // <!-- Space Dust Animation -->
+
+const canvas = document.getElementById("space-dust");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let stars = [];
+for (let i = 0; i < 100; i++) {
+    stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 2,
+        dx: (Math.random() - 0.5) * 0.5,
+        dy: (Math.random() - 0.5) * 0.5,
+    });
+}
+
+function animateStars() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "white";
+    stars.forEach((star) => {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fill();
+        star.x += star.dx;
+        star.y += star.dy;
+        if (star.x < 0 || star.x > canvas.width) star.dx *= -1;
+        if (star.y < 0 || star.y > canvas.height) star.dy *= -1;
+    });
+    requestAnimationFrame(animateStars);
+}
+
+animateStars();
+
+window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+
+
+
+// form validation
+function toggleSubmitButton() {
+  const checkbox = document.getElementById('terms');
+  const submitBtn = document.getElementById('submitBtn');
+  
+  if (checkbox.checked) {
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('bg-gray-500', 'cursor-not-allowed');
+      submitBtn.classList.add('bg-blue-500', 'hover:bg-blue-700');
+  } else {
+      submitBtn.disabled = true;
+      submitBtn.classList.remove('bg-blue-500', 'hover:bg-blue-700');
+      submitBtn.classList.add('bg-gray-500', 'cursor-not-allowed');
+  }
+}
+
+function validateForm() {
+  if (!document.getElementById('terms').checked) {
+      alert("Please agree to the Terms & Conditions before proceeding.");
+      return false;
+  }
+  return true;
+}
+
+
+
+
+
+
+
+  </script>
+
+
+{% endblock %}

@@ -1,0 +1,245 @@
+{% load static %} {% load static tailwind_tags %}
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indian Institute of Surgeon Summit 2025</title>
+    <!-- Tailwind CSS via CDN -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- css -->
+    {% tailwind_css %}
+    <link rel="stylesheet" href="{% static "cmkrf\styles\styles.css" %}">
+
+    
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <!-- Scroll to Top Button -->
+    <button
+      id="scrollToTopBtn"
+      class="fixed bottom-6 right-6 bg-gradient-to-r from-blue-600 to-gray-900 text-white p-4 rounded-full shadow-lg text-xl hidden transition transform hover:scale-110 z-10"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="size-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="m4.5 15.75 7.5-7.5 7.5 7.5"
+        />
+      </svg>
+    </button>
+
+    <!-- NAVIGATION -->
+    <nav class="bg-black backdrop-blur-md sticky top-0 z-50 shadow-md  bg-gradient-to-r from-blue-700 to-gray-900 ">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <!-- Logo / Title -->
+        <a href="{% url 'home' %}" class="text-2xl font-bold text-white">Indian Institute of Surgeon Summit</a>
+
+        <!-- Desktop Nav Links -->
+        <div class="hidden md:flex items-center space-x-6 text-lg">
+          <a href="{% url 'home' %}" class="text-white hover:text-gray-300">Home</a>
+          <a href="{% url 'home' %}#about-us" class="text-white hover:text-gray-300">About</a>
+          <a href="{% url 'agenda' %}" class="text-white hover:text-gray-300">Agenda</a>
+          <a href="{% url 'speakers' %}" class="text-white hover:text-gray-300">Speakers</a>
+          <a href="{% url 'registration' %}" class="text-white hover:text-gray-300">Registration</a>
+          <a href="{% url 'abstract' %}" class="text-white hover:text-gray-300">Submit Abstract</a>
+
+          <!-- Dropdown Menu -->
+          <div class="relative group">
+            <button class="text-white flex items-center hover:text-gray-300">
+              More
+              <svg class="w-5 h-5 ml-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            
+            <!-- Dropdown Content -->
+            <div class="absolute left-0 mt-2 w-48 bg-black rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out">
+              <a href="{% url 'home' %}#sponsor" class="block px-4 py-2 text-white hover:bg-gray-700">Sponsors & Exhibitors</a>
+              <a href="{% url 'home' %}#venue" class="block px-4 py-2 text-white hover:bg-gray-700">Venue & Travel</a>
+              <a href="{% url "contact" %}" class="block px-4 py-2 text-white hover:bg-gray-700">Contact</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="menuBtn" class="md:hidden text-white focus:outline-none">
+          <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu (Hidden by Default) -->
+      <div id="mobileMenu" class="hidden md:hidden bg-black text-white">
+        <a href="{% url 'home' %}" class="block px-6 py-3 hover:bg-gray-700">Home</a>
+        <a href="{% url 'home' %}#about-us" class="block px-6 py-3 hover:bg-gray-700">About</a>
+        <a href="{% url 'agenda' %}" class="block px-6 py-3 hover:bg-gray-700">Agenda</a>
+        <a href="{% url 'speakers' %}" class="block px-6 py-3 hover:bg-gray-700">Speakers</a>
+        <a href="{% url 'registration' %}" class="block px-6 py-3 hover:bg-gray-700">Registration</a>
+        <a href="{% url 'abstract' %}" class="block px-6 py-3 hover:bg-gray-700">Submit Abstract</a>
+        
+        <div class="border-t border-gray-700"></div>
+
+        <a href="{% url 'home' %}#sponsor" class="block px-6 py-3 hover:bg-gray-700">Sponsors & Exhibitors</a>
+        <a href="{% url 'home' %}#venue" class="block px-6 py-3 hover:bg-gray-700">Venue & Travel</a>
+        <a href="{% url "contact" %}" class="block px-6 py-3 hover:bg-gray-700">Contact</a>
+      </div>
+    </nav>
+    
+    
+
+    <main>{% block content %} {% endblock content %}</main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gradient-to-r from-blue-700 to-gray-900 py-8 text-gray-400  ">
+      <div class="max-w-7xl mx-auto px-6 text-center">
+        <!-- Footer Navigation -->
+        <nav class="mb-4">
+          <ul class="flex justify-center space-x-6">
+            <li>
+              <a
+                href="{% url 'home' %}#about-us"
+                class="hover:text-white transition duration-300"
+                >About</a
+              >
+            </li>
+            <li>
+              <a href="{% url 'home' %}#agenda" class="hover:text-white transition duration-300"
+                >Agenda</a
+              >
+            </li>
+            <li>
+              <a
+                href="{% url "contact" %}"
+                class="hover:text-white transition duration-300"
+                >Contact</a
+              >
+            </li>
+            <li>
+              <a
+                href="{% url 'registration' %}"
+                class="hover:text-white transition duration-300"
+                >Register</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Social Media Icons -->
+        <div class="flex justify-center space-x-6 mb-4">
+          <a
+            href="https://www.facebook.com/"
+            target="_blank"
+            class="text-blue-500 text-2xl hover:scale-110 transition duration-300"
+            ><i class="fab fa-facebook"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/"
+            target="_blank"
+            class="text-pink-500 text-2xl hover:scale-110 transition duration-300"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a
+            href="https://www.twitter.com/"
+            target="_blank"
+            class="text-blue-400 text-2xl hover:scale-110 transition duration-300"
+            ><i class="fab fa-twitter"></i
+          ></a>
+        </div>
+
+        <!-- Copyright Notice -->
+        <p class="text-sm">
+          &copy; 2025 Indian Institute of Surgeon Summit. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+
+
+
+    <!-- Chatbot Button -->
+    <div class="fixed bottom-5 left-5 right-5">
+        <button id="chatbotToggle" class="bg-blue-600 text-white p-4 rounded-full shadow-lg flex items-center space-x-2 hover:bg-blue-700 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 20v-2a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v2"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+                <path d="M12 2a10 10 0 0 1 10 10v2a10 10 0 0 1-10 10"></path>
+            </svg>
+            <span class="hidden sm:block">Chat</span>
+        </button>
+    </div>
+
+    <!-- Chatbot Window -->
+    <div id="chatbotWindow" class="fixed bottom-24 left-5 right-5 w-80 bg-white shadow-lg rounded-lg p-4 hidden">
+        <div class="flex justify-between items-center border-b pb-2 ">
+            <h2 class="text-lg font-bold text-gray-700">Surgeon Summit Chatbot</h2>
+            <button id="closeChatbot" class="text-gray-500 hover:text-gray-700">&times;</button>
+        </div>
+        <div id="chatBox" class="h-60 overflow-y-auto p-2 space-y-2 text-gray-700">
+            <div class="bg-gray-100 p-2 rounded-lg">Hello! How can I assist you?</div>
+        </div>
+        <div class="border-t pt-2 flex items-center">
+            <input type="text" id="chatInput" placeholder="Type a message..." class="w-full border rounded-lg p-2 focus:outline-none">
+            <button id="sendMessage" class="ml-2 bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition">Send</button>
+        </div>
+    </div>
+
+
+    
+    <!-- FontAwesome for Social Icons -->
+    <script src="{% static 'cmkrf\js\script.js' %}"></script>
+    <script src="{% static 'cmkrf\js\chatbot.js' %}"></script>
+    <!-- Include reCAPTCHA Script -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <script>
+
+      // JavaScript for Mobile Menu Toggle 
+      document.getElementById('menuBtn').addEventListener('click', function() {
+        document.getElementById('mobileMenu').classList.toggle('hidden');
+      });
+
+
+      // Scroll-to-top button functionality
+      const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          scrollToTopBtn.classList.remove("hidden");
+        } else {
+          scrollToTopBtn.classList.add("hidden");
+        }
+      });
+
+      scrollToTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+
+
+    </script>
+  </body>
+</html>
